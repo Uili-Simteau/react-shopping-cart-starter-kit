@@ -2,7 +2,7 @@ import React                  from 'react'
 import Cart                   from '../modules/CartStarterKit.jsx'
 import Griddle                from 'griddle-react'
 import BootstrapPager         from './GriddleBootstrapPager.jsx'
-import items                  from './sampledata'
+import items                  from '../../controllers/index'
 import TimeoutTransitionGroup from './react-components/js/timeout-transition-group.jsx'
 
 import { Modal, Alert, Panel, Table, Input, Button } from 'react-bootstrap'
@@ -49,7 +49,7 @@ const BootstrapCartRow = React.createClass({
                         <Button
                           onClick = {this.increment}
                           bsSize  = 'small'>
-                            <i className='fa fa-plus' /> 
+                            <i className='fa fa-plus' />
                         </Button>
                       }
                       style    = {{textAlign: 'right'}}
@@ -59,11 +59,11 @@ const BootstrapCartRow = React.createClass({
                     </div>
                 </td>
                 <td>
-                    <Button 
+                    <Button
                       standalone
                       bsSize   = 'small'
                       onClick  = {this.props.removeItem}>
-                        <i className='fa fa-remove' /> 
+                        <i className='fa fa-remove' />
                     </Button>
                 </td>
             </tr>
@@ -144,7 +144,7 @@ const BootstrapCart = React.createClass({
                     <i className='fa fa-fw fa-exclamation-circle' />
                     Quantity changed from {from} to {to} for '{item['Artist']}<span>&mdash;</span>{item['Title']}'.
                 </span>
-            ), 
+            ),
             style : 'info'
         })
     },
@@ -176,8 +176,8 @@ const BootstrapCart = React.createClass({
                 style : item.style
             })
         }
-        notifications.sort((a, b) => { 
-            return b.key - a.key 
+        notifications.sort((a, b) => {
+            return b.key - a.key
         })
         return (
             <div className='container'>
@@ -214,7 +214,7 @@ const BootstrapCart = React.createClass({
                     </Modal.Body>
                 </Modal>
                 <Panel>
-                    <Griddle 
+                    <Griddle
                       ref                     = 'griddle'
                       showFilter              = {true}
                       columns                 = {['Artist', 'Title', 'Country', 'Year', 'Format', 'Price']}
@@ -226,7 +226,7 @@ const BootstrapCart = React.createClass({
                       results                 = {this.state.data} />
                 </Panel>
                 <Panel>
-                    <Cart 
+                    <Cart
                       ref                     = 'cart'
                       tableClassName          = 'table cart'
                       onChange                = {this.refresh}
@@ -241,21 +241,21 @@ const BootstrapCart = React.createClass({
                             No items selected.
                         </span>
                       )} />
-                    {this.state.canSubmit && ( 
+                    {this.state.canSubmit && (
                         <Button block bsStyle='primary' onClick={this.showOrder}>
                             <i className='fa fa-check' /> Submit
                         </Button>
                     )}
                 </Panel>
-                <TimeoutTransitionGroup 
+                <TimeoutTransitionGroup
                   enterTimeout   = {300}
                   leaveTimeout   = {300}
                   transitionName = 'notifications'>
                     {notifications.map(notification => {
                         return (
-                            <Alert 
-                              key       = {notification.key} 
-                              bsStyle   = {notification.style} 
+                            <Alert
+                              key       = {notification.key}
+                              bsStyle   = {notification.style}
                               onDismiss = {() => this.hideNotification(notification.key)}>
                                 {notification.text}
                             </Alert>

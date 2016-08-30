@@ -12,7 +12,5 @@ gulp.task('default', function() {
 });
 
 gulp.task('examples', function() {
-    browserify('./examples/UnstyledCart.jsx.js').transform(babelify).bundle().pipe(source('UnstyledCart.js')).pipe(gulp.dest('./examples/build'));
     browserify('./examples/BootstrapCart.jsx.js').transform(babelify).bundle().pipe(source('BootstrapCart.js')).pipe(gulp.dest('./examples/build'));
-    browserify('./examples/DragDropCart.jsx.js').transform(babelify).bundle().pipe(source('DragDropCart.js')).pipe(gulp.dest('./examples/build'));
 });

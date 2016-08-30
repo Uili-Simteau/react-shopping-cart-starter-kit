@@ -1,6 +1,6 @@
 const items = {
    "item-1"       : {
-      "Artist"    : "Abyssinians",
+      "Artist"    : "Pertronic",
       "Title"     : "Satta",
       "Label"     : "Azul",
       "Country"   : "US",
